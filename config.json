@@ -1,0 +1,43 @@
+{
+  "log": { "loglevel": "none" },
+  "inbounds": [
+    {
+      "port": 8080,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          { "id": "11111111-1111-1111-1111-111111111111", "alterId": 0 }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/Telegram/@HasibBdTunnel/@bouchor"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      }
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 8081,
+      "protocol": "http",
+      "settings": {
+        "response": {
+          "status": 200,
+          "headers": { "Content-Type": ["text/plain"] },
+          "body": "hasib"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": { "domainStrategy": "UseIPv4" }
+    }
+  ]
+}
